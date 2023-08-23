@@ -28,20 +28,31 @@ function main() {
     h2.className = "header2"
     root.appendChild(h2);
 
-// Create <ul> element 
+//creating unordered list
+let list = document.createElement('ul');
 
-    const userList = document.createElement("ul");
-    userList.innerText = users
+//looping through the user object and creating li element for each object in the array
+for(let i=0;i<users.length;i++){
+    let userName = document.createElement('li');
+    let userAge = document.createElement('li');
+    let userOccupation = document.createElement('li');
+
+    userName.innerText = `Name : ${users[i].name}`;
+    userAge.innerText = `Age : ${users[i].age}`;
+    userOccupation.innerText = `Occupation: ${users[i].occupation}`;
+
+    list.appendChild(userName);
+    list.appendChild(userAge);
+    list.appendChild(userOccupation);
+
+    let horizontal = document.createElement('hr');
+     horizontal.className = 'horizontal';
+    list.appendChild(horizontal);
+    list.appendChild(document.createElement('br'));
     
-    root.appendChild(ul);
+}
 
-    ul.setAttribute('root','userList');
-    for(let i=0; i <= users.length - 1; i++) {
-        const list = document.createElement('li');
-        list.innerText = `${user.name}; ${user.age}; ${user.occupation}`;
-        
-        root.appendChild(li);
-    }
+root.appendChild(list);
 
 }
 
